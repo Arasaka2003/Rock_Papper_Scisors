@@ -33,3 +33,6 @@ Scissors
        __________)
       (____)
 ---.__(___)
+
+Pentru lansare proicetului puteți porni .exe din "\Rock_Papper_Scisors\x64\Release\LaboratorCPP.exe"\
+sau lansa proiectul direct din Visual Studio Code sau Visual Studio 
