@@ -1,7 +1,37 @@
  #include "GameController.h"
 
-
-GameController::GameController(GameView& View, GameModel& Model):GameViewInstance(&View), GameModelInstance(&Model) {}
+GameController::GameController() :InstanceId(0), GameModelInstance(nullptr), GameViewInstance(nullptr) {};
+GameController::GameController(const GameController& controller) 
+{
+	GameModelInstance = controller.GameModelInstance;
+	GameViewInstance = controller.GameViewInstance;
+	InstanceId = controller.InstanceId;
+}
+GameController::GameController(GameView& View, GameModel& Model,int id):InstanceId(id), GameViewInstance(&View), GameModelInstance(&Model) {}
+GameController& GameController::operator=(const GameController& controller) 
+{
+	GameModelInstance = controller.GameModelInstance;
+	GameViewInstance = controller.GameViewInstance;
+	InstanceId = controller.InstanceId;
+	return *this;
+}
+bool GameController::operator==(const GameController& controller)
+{
+	if (GameModelInstance == controller.GameModelInstance && GameViewInstance == controller.GameViewInstance)
+		return true;
+	else
+		return false;
+}
+istream& operator>>(istream& is, GameController& controller) 
+{
+	is >> controller.InstanceId;
+	return is;
+}
+ostream& operator<<(ostream& os, const GameController& controller)
+{
+	os << controller.InstanceId << endl;
+	return os;
+}
 
  void GameController::StartGame() 
  {
@@ -24,4 +54,5 @@ GameController::GameController(GameView& View, GameModel& Model):GameViewInstanc
 	 GameModelInstance->CheckWinner(Result, OponentResult);
 	 StartGame();
  }
+
 GameController::~GameController() {}
