@@ -1,8 +1,9 @@
-﻿  LaboratorCPP.cpp
-C:\Users\Arasaka\source\repos\LaboratorCPP\GameView.h(5,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+﻿  GameController.cpp
+C:\Users\Arasaka\Documents\GitHub\LaboratorCPP\Rock_Papper_Scisors\GameView.h(5,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  LaboratorCPP.cpp
+C:\Users\Arasaka\Documents\GitHub\LaboratorCPP\Rock_Papper_Scisors\GameView.h(5,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
   Создание кода
-  1 of 24 functions ( 4.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 93 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Создание кода завершено
-  LaboratorCPP.vcxproj -> C:\Users\Arasaka\source\repos\LaboratorCPP\x64\Release\LaboratorCPP.exe
+  LaboratorCPP.vcxproj -> C:\Users\Arasaka\Documents\GitHub\LaboratorCPP\Rock_Papper_Scisors\x64\Release\LaboratorCPP.exe
