@@ -3,8 +3,10 @@
 
 #include "GameView.h"
 #include "GameModel.h"
+#include "GameData.h"
 #include <memory>
 #include <iostream>
+#include <SFML/Graphics.hpp>
 
 class GameController {
 public:
@@ -14,12 +16,18 @@ public:
     bool operator==(const GameController& controller) const;
     friend std::ostream& operator<<(std::ostream& os, const GameController& controller);
     friend std::istream& operator>>(std::istream& is, GameController& controller);
+
     GameController(std::shared_ptr<GameView> view, std::shared_ptr<GameModel> model, int id);
-    ~GameController() = default; 
+    ~GameController() = default;
+
     void StartGame();
+
 private:
-    std::shared_ptr<GameModel> gameModelInstance; 
-    std::shared_ptr<GameView> gameViewInstance;   
+    std::shared_ptr<GameModel> gameModelInstance;
+    std::shared_ptr<GameView> gameViewInstance;
     int instanceId = 0;
+
+    void RenderInputs(sf::RenderWindow& window, InputDataType player, InputDataType opponent,const std::string& result);
 };
+
 #endif

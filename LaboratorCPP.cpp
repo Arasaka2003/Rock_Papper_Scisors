@@ -1,28 +1,25 @@
-﻿#include <iostream>
-#include "GameController.h"
+﻿#include "GameController.h"
+#include <SFML/Graphics.hpp>
+#include <iostream>
+#include <memory>
+#include <algorithm>
 
+int main() {
+    // Создание экземпляров GameView и GameModel
+    auto gameView = std::make_shared<GameView>();
+    auto gameModel = std::make_shared<GameModel>();
 
-int main()
-{
-   auto view=std::make_shared<GameView>();
-   auto model=std::make_shared<GameModel>();
-   GameController controller1(view, model,4); 
-   cout << "Controller1Id:" << endl << controller1;
-   GameController controller2(controller1); 
-   cout << "Controller2Id:"<<endl << controller2;
-   GameController controller3;
-   cout << "Controller3Id:"<<endl << controller3;
-   controller3 = controller1; 
-   cout << "Controller3Id:" <<endl<< controller3;
-   if (controller1 == controller2) 
-   {
-       cout << "Controllers 1 and 2 are equal!" << endl;
-   }
-   cout << "Controller3 EnterID:" << endl;
-   cin >> controller3;
-   cout << "Controller3Id:"<<endl << controller3;
-   int x;
-   cin >> x;
-return 0;
+    // Создание GameController и передача зависимостей
+    GameController controller(gameView, gameModel, 1);
+
+    // Запуск игры
+    try {
+        controller.StartGame();
+    }
+    catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return -1;
+    }
+
+    return 0;
 }
-

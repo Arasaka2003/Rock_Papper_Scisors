@@ -27,6 +27,9 @@
     <ClCompile Include="GameModel.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="GameData.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameModel.h">
@@ -41,5 +44,11 @@
     <ClInclude Include="InputData.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="GameData.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
