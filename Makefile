@@ -1,44 +1,48 @@
-# Компилятор и флаги
 CXX = g++
 CXXFLAGS = -Wall -std=c++17 -Iinclude
 LDFLAGS = -Llib
 LDLIBS = -lsfml-graphics -lsfml-window -lsfml-system
 
-# Пути
 SRC_DIR = src
+TEST_DIR = tests
 INCLUDE_DIR = include
 BIN_DIR = bin
 LIB_DIR = lib
-ASSETS_DIR = assets
-
 
 SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
 OBJECTS = $(SOURCES:$(SRC_DIR)/%.cpp=$(BIN_DIR)/%.o)
-STATIC_LIB = $(LIB_DIR)/libgame.a
-EXECUTABLE = $(BIN_DIR)/game.exe
 
+TEST_SOURCES = $(wildcard $(TEST_DIR)/*.cpp)
+TEST_OBJECTS = $(TEST_SOURCES:$(TEST_DIR)/%.cpp=$(BIN_DIR)/%.o)
+
+EXECUTABLE = $(BIN_DIR)/game
+TEST_EXECUTABLE = $(BIN_DIR)/test_gamedata
+
+.PHONY: all clean run test
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): $(STATIC_LIB) $(BIN_DIR)/main.o
+$(EXECUTABLE): $(OBJECTS)
 	@mkdir -p $(BIN_DIR)
-	$(CXX) $(CXXFLAGS) $(BIN_DIR)/main.o -o $@ $(LDFLAGS) -lgame $(LDLIBS)
-
-
-$(STATIC_LIB): $(filter-out $(BIN_DIR)/main.o, $(OBJECTS))
-	@mkdir -p $(LIB_DIR)
-	ar rcs $@ $^
-
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@ $(LDFLAGS) $(LDLIBS)
 
 $(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(BIN_DIR)
+	@mkdir -p $(LIB_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-
 clean:
-	DEL /Q $(BIN_DIR)\*.o $(BIN_DIR)\*.exe $(LIB_DIR)\*.a
-	RMDIR /S /Q $(BIN_DIR) $(LIB_DIR)
+	rm -rf $(BIN_DIR) $(LIB_DIR)
 
+run: $(EXECUTABLE)
+	./$(EXECUTABLE)
 
-test: all
-	$(EXECUTABLE)
+test: $(TEST_EXECUTABLE)
+	./$(TEST_EXECUTABLE)
+
+$(TEST_EXECUTABLE): $(TEST_OBJECTS) $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(TEST_OBJECTS) $(OBJECTS) -o $@ $(LDFLAGS) $(LDLIBS)
+
+$(BIN_DIR)/%.o: $(TEST_DIR)/%.cpp
+	@mkdir -p $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@

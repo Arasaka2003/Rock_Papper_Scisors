@@ -132,6 +132,7 @@
     <ClCompile Include="GameModel.cpp" />
     <ClCompile Include="GameView.cpp" />
     <ClCompile Include="LaboratorCPP.cpp" />
+    <ClCompile Include="tests\bin\test_gamedata.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameController.h" />

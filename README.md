@@ -1,38 +1,37 @@
-# Rock_Papper_Scisors
- 
-Am ales să fac un joc de Piatră, hârtie, foarfecă în C++ prin MVC
-View-vizualizarea inputurilor.
-Model-Prelucrarea datelor.
-Controller-preluarea datelor de intrare și logica jocului.
+# Rock-Paper-Scissors Game
 
-Jucătorul trebuie să aleagă ce mișcarea v-a efecua : 1-Rock,2-Paper,3-Scissors la rîndul său 
-"computer" v-a fi jucătorul 2 care v-a face mișcări aleatoare.
-Rock>Scissors Paper>Rock Scissors>Paper
+## Descriere
 
-Rock
-       _______
-    ---'   ____)
-          (_____)
-          (_____)
-          (____)
-    ---.__(___)
-    
+Acest proiect implementează un joc Rock-Paper-Scissors (Piatră, Hârtie, Foarfecă) cu o interfață grafică simplă folosind SFML. Utilizatorul alege Rock (1), Paper (2) sau Scissors (3), iar calculatorul face o mutare aleatorie. Rezultatul (You Win, You Lose sau Draw) va fi afișat, împreună cu simbolurile corespunzătoare.
 
-Paper
-           ______
-    ---'    ____)____
-               ______)
-              _______)
-             _______)
-    ---.__________)
+## Autor
+Crăciunel Daniel 
+An: 2024
 
-Scissors 
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
+## Reguli de Joc
 
-Pentru lansare proicetului puteți porni .exe din "\Rock_Papper_Scisors\x64\Release\LaboratorCPP.exe"\
-sau lansa proiectul direct din Visual Studio Code sau Visual Studio 
+- Rock bate Scissors.
+- Scissors bate Paper.
+- Paper bate Rock.
+- Dacă ambele alegeri sunt la fel, este Draw.
+
+## Dependențe
+
+- **C++17** sau o versiune mai nouă.
+- **SFML** pentru grafică. Asigurați-vă că SFML este instalat și că includeți calea către headere și librăriile dinamice/static.
+- **Compilator**: g++ sau clang++.
+
+## Compilare și Rulare
+
+1. Clonați repository-ul:
+   ```bash
+   git clone https://github.com/username/rock-paper-scissors.git
+   cd rock-paper-scissors
+2. Compilați cu Makefile:
+   make
+3. Rulați executabilul
+   ./bin/game
+## Teste 
+1. Testele sunt în directorul tests/, acestea pot fi compilate și rulate astfel:
+   make test
+   ./bin/test_gamedata
