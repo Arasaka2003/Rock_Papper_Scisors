@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+.vs/LaboratorCPP/v17/Browse.VC.db
+.vs/LaboratorCPP/v17/Browse.VC.db-shm
+.vs/LaboratorCPP/v17/Browse.VC.db-wal
+.vs/LaboratorCPP/v17/Browse.VC.opendb
+*.db
